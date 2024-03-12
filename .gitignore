@@ -6,6 +6,9 @@ __pycache__
 db.sqlite3
 media
 
+# Ignoring the environment directory for this project
+/django_blog_env
+
 # Backup files #
 *.bak
 
