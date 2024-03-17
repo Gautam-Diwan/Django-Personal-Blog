@@ -10,6 +10,7 @@ class Tag(models.Model):
     def __str__(self) -> str:
         return self.caption
 
+
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -17,7 +18,7 @@ class Author(models.Model):
 
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
-    
+
     def __str__(self) -> str:
         return self.full_name()
 
@@ -25,7 +26,7 @@ class Author(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=150)
     excerpt = models.CharField(max_length=250)
-    image_name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="posts", null=True)
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True, db_index=True)
     content = models.TextField(validators=[MinLengthValidator(10)])
