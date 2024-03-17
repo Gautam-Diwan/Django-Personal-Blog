@@ -94,7 +94,7 @@ class ReadLaterView(View):
         else:
             stored_posts.remove(post_id)
             request.session["stored_posts"] = stored_posts
-            
+
             current_post = Post.objects.get(id=post_id)
             current_post_slug = current_post.slug
 
